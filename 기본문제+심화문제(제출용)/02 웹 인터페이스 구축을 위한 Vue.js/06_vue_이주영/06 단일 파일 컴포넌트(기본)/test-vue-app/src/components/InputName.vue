@@ -14,6 +14,12 @@
 <script>
 export default {
   name: 'InputName',
+  emits : {     
+    nameChanged: (e) => {   //슬라이드10: nameChanged이벤트에 유효성 검사를 추가한다.
+        return e.name&&typeof(e.name) === "string"&&e.name.trim().length >=3   //name값이 존재할것 , name값의 타입은 문자열일것, name값의 길이가 3이상일 것.
+        ? true: false
+    }
+  }
   data() {
     return {
         name: ""   //이벤트인자인 name을 정의
@@ -28,5 +34,6 @@ export default {
     padding: 5px;
 }
 </style>
-<!-- //nameChanged이벤트에 유효성 검사를 추가한다.
-    //name값이 존재할것 , name값의 타입은 문자열일것, name값의 길이가 3이상일 것. -->
+
+
+    
