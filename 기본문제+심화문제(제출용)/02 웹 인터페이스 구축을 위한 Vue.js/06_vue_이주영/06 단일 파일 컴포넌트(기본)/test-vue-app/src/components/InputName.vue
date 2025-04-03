@@ -19,7 +19,7 @@ export default {
         return e.name&&typeof(e.name) === "string"&&e.name.trim().length >=3   //name값이 존재할것 , name값의 타입은 문자열일것, name값의 길이가 3이상일 것.
         ? true: false
     }
-  }
+  },
   data() {
     return {
         name: ""   //이벤트인자인 name을 정의

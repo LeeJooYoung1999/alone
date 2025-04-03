@@ -1,3 +1,5 @@
+<!-- //App4에서 InputName컴포넌트로부터 이벤트로 전달된 데이터를 출력한다 -->
+
 <template>
   <div>
     <h2>InputName: 이름을 입력하세요.</h2>
