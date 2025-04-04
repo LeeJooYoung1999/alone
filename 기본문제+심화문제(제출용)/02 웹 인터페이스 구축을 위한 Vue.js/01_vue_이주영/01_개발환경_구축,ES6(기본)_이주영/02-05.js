@@ -5,7 +5,7 @@ function addContact(
   address = '없음',
   email = '없음'
 ) {
-  var str =
+  let str =
     `name=${name}, mobile=${mobile}, home=${home},` +
     ` address=${address}, email=${email}`;
   console.log(str);

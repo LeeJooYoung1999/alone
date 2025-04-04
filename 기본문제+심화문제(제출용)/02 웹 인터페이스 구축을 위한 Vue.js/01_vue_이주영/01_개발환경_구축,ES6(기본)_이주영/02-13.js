@@ -1,4 +1,4 @@
-var obj = { result: 0 };
+let obj = { result: 0 };
 obj.add = function (x, y) {
   function inner() {
     this.result = x + y;
