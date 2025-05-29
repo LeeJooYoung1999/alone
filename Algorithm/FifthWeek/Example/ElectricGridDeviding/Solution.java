@@ -1,13 +1,31 @@
 package FifthWeek.Example.ElectricGridDeviding;
+
 import java.util.*;
 class Solution {
-    public  int solution(int n, int[][] wires){
-        int answer = Integer.MAX_VALUE; //'더 작은것 고르기' Math.min위해 '적당히 큰수'로 정의
-        // 해시맵을 이용해, 주어진 간선정보를 <노드, <해당 노드와 이어진 노드>>그래프, 즉 인접리스트 그래프로 정리한다.
+    int answer = Integer.MAX_VALUE;
+    public int solution (int n, int[][] wires){
         Map<Integer, List<Integer>> graph = new HashMap<>();
-        for (int i=0;i<=n; i++) {
-            graph.put(i, new ArrayList<>()); //i노드와 연결된 노드리스트를 ArrayList자료구조를 이용해 관리.
-        }//for
-        
-    }//sol
+        for (int i =1; i<=n; i++){
+            graph.put(i, new ArrayList<>());
+        }//for - graph
+        for (int[] wire: wires){
+            graph.get(wire[0]).add(wire[1]);
+            graph.get(wire[1]).add(wire[0]);
+        }//for - 양방향연결
+
+        boolean[] visited = new boolean[n+1];
+        dfs(graph, visited, 1, n); //노드는 1번부터 시작.
+        return answer;
+    }//solution
+    int dfs (Map<Integer, List<Integer>> graph, boolean[] visited, int cur, int n){
+        int count = 1;
+        visited[cur] = true;
+        for(int next : graph.get(cur)){
+            if(!visited[next]){
+                count += dfs(graph, visited, next, n);
+            }//if 미방문노드이면
+        }//for cur근접노드
+        answer = Math.min(answer, Math.abs(n-count*2)); //최적의 answer비교업데이트
+        return count; //재귀적으로, 자기가 속한 서브트리의 노드수 반환.
+    }//dfs
 }//class
