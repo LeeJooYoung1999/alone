@@ -101,12 +101,12 @@ public class SolGpt {
                 if (board[i][j] == 'R') {
                     rx = i;
                     ry = j;
-                    board[i][j] = '.';
+                    board[i][j] = '.'; //R의 위치는 rx, ry에 담아뒀으니, 빈칸으로 변경
                 }
                 if (board[i][j] == 'B') {
                     bx = i;
                     by = j;
-                    board[i][j] = '.';
+                    board[i][j] = '.'; //B도 마찬가지.
                 }
             }
         }

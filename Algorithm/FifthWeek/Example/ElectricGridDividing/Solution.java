@@ -1,4 +1,4 @@
-package FifthWeek.Example.ElectricGridDeviding;
+package FifthWeek.Example.ElectricGridDividing;
 
 import java.util.*;
 class Solution {
